@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>플립카드 암기</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body onload="checkLogin(); loadCards(); renderCardList();">
+  <div class="header">
+    <span id="userInfo"></span>
+    <button onclick="logout()">로그아웃</button>
+  </div>
+
+  <div class="container">
+    <h1>📚 플립카드 단어 암기</h1>
+    <div id="wordCount" style="margin-bottom: 15px; font-weight: bold;">단어 수: 0 / 50</div>
+    <div class="input-section">
+      <input type="text" id="wordInput" placeholder="단어 입력" />
+      <input type="text" id="meaningInput" placeholder="뜻 입력" />
+      <button onclick="addCard()">단어 추가</button>
+    </div>
+
+    <div>
+      <button onclick="toggleDeleteMode()">🗑️ 삭제 모드 켜기 / 끄기</button>
+    </div>
+    <div id="cardList"></div>
+
+    <div class="mode-section">
+      <label><input type="radio" name="mode" value="word" checked /> 단어 먼저</label>
+      <label><input type="radio" name="mode" value="meaning" /> 뜻 먼저</label>
+      <button onclick="startStudy()">학습 시작</button>
+    </div>
+
+    <div id="cardSection" class="card-section hidden">
+      <div class="card" id="flashCard" onclick="flipCard()">
+        <div class="front" id="cardFront"></div>
+        <div class="back" id="cardBack"></div>
+      </div>
+      <div class="buttons">
+        <button onclick="prevCard()">← 이전</button>
+        <button onclick="nextCard()">다음 →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
